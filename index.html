@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Frontend Wizards — Todo Item Card</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="page-shell">
+    <section class="page-header">
+      <p class="stage-label">Frontend Wizards — Stage 0</p>
+      <h1>Testable Todo Item Card</h1>
+      <p>Accessible, responsive, and keyboard-friendly task card.</p>
+    </section>
+
+    <article class="todo-card" data-testid="test-todo-card" aria-label="Todo item card">
+      <div class="todo-card__top">
+        <div class="todo-card__header">
+          <div class="todo-card__title-wrap">
+            <h2 class="todo-card__title" data-testid="test-todo-title">Design landing page content</h2>
+            <span class="badge badge--priority" data-testid="test-todo-priority" aria-label="High priority">High</span>
+          </div>
+
+          <div class="todo-card__status-wrap">
+            <span class="badge badge--status" data-testid="test-todo-status" aria-label="Status pending">Pending</span>
+          </div>
+        </div>
+
+        <p class="todo-card__description" data-testid="test-todo-description">
+          Write a polished, accessible hero section for the new project launch and prepare assets for review.
+        </p>
+      </div>
+
+      <div class="todo-card__meta">
+        <div class="todo-card__field">
+          <label class="checkbox-label" for="complete-toggle">
+            <input id="complete-toggle" type="checkbox" data-testid="test-todo-complete-toggle" />
+            <span>Mark complete</span>
+          </label>
+        </div>
+
+        <div class="todo-card__field">
+          <strong>Due</strong>
+          <time id="due-date" datetime="" data-testid="test-todo-due-date">Due Jun 01, 2026</time>
+        </div>
+
+        <div class="todo-card__field" aria-live="polite">
+          <strong>Time left</strong>
+          <span id="time-remaining" data-testid="test-todo-time-remaining">Due in 3 days</span>
+        </div>
+      </div>
+
+      <div class="todo-card__tags" data-testid="test-todo-tags" role="list" aria-label="Task tags">
+        <span class="tag" role="listitem" data-testid="test-todo-tag-work">Work</span>
+        <span class="tag" role="listitem" data-testid="test-todo-tag-urgent">Urgent</span>
+        <span class="tag" role="listitem">Design</span>
+      </div>
+
+      <div class="todo-card__actions">
+        <button type="button" class="button button--edit" data-testid="test-todo-edit-button" aria-label="Edit task">Edit</button>
+        <button type="button" class="button button--delete" data-testid="test-todo-delete-button" aria-label="Delete task">Delete</button>
+      </div>
+    </article>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
