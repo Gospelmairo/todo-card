@@ -218,7 +218,7 @@ function toggleExpand() {
   }
 }
 
-// ── Edit mode (form is always visible) ────────────────────────
+// ── Edit mode ─────────────────────────────────────────────────
 function populateForm() {
   editTitleInput.value     = state.title;
   editDescInput.value      = state.description;
@@ -234,9 +234,14 @@ function openEditMode() {
     priority:    state.priority,
     dueDate:     new Date(state.dueDate),
   };
+
   populateForm();
-  state.isEditMode = true;
-  // Scroll form into view and focus the title field
+
+  // Swap: hide card view, show edit form
+  viewEl.hidden     = true;
+  editFormEl.hidden = false;
+  state.isEditMode  = true;
+
   editTitleInput.focus();
 }
 
@@ -264,14 +269,13 @@ function closeEditMode(save) {
     renderDescription(state.description);
     renderPriority(state.priority);
     renderDueDate(state.dueDate);
-    // Keep form in sync with saved values
-    populateForm();
-  } else {
-    // Cancel: reset form fields back to last saved state
-    populateForm();
   }
 
-  state.isEditMode = false;
+  // Swap back: show card view, hide edit form
+  editFormEl.hidden = true;
+  viewEl.hidden     = false;
+  state.isEditMode  = false;
+
   editBtn.focus();
 }
 
@@ -374,5 +378,4 @@ renderTitle(state.title);
 renderDescription(state.description);
 renderDueDate(state.dueDate);
 renderStatus(state.status);
-populateForm(); // pre-fill form fields on page load
 startTimer();
